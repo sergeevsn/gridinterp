@@ -1,7 +1,7 @@
 ## Seismic 3D grid interpolation/extrapolation 
-### Takes 4 points of the grid with linear coordinates, geographic coordinates and inlines/crosslines.
-### Interpolates onto new linear coordinates with desired step.
-### Uses simple linear 4-point interpolation
+Takes 4 points of the grid with linear coordinates, geographic coordinates and inlines/crosslines.
+Interpolates onto new linear coordinates with desired step.
+Uses simple linear 4-point interpolation
 
 Usage: 
 ```sh
