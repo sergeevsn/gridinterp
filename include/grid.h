@@ -162,13 +162,14 @@ class Grid {
             this->size_y = upper_left_point.lin_y - lower_left_point.lin_y;
             return 0;
         }
-
+       
         
         void printGridPoints() {
             std::vector<point> points = {this->lower_left_point, this->lower_right_point, this->upper_left_point, this->upper_right_point};
+            std::vector<std::string> point_names = {"LLP", "LRP", "ULP", "URP"};
             for (int i=0; i<4; i++) {
                  point P = points[i];
-                 std::cout << "LLP: LinX = " << std::fixed << std::setprecision(1) << P.lin_x << ", LinY = " \
+                 std::cout << point_names[i] << ": LinX = " << std::fixed << std::setprecision(1) << P.lin_x << ", LinY = " \
                       << std::fixed << std::setprecision(1) << P.lin_y << ", GeoX = " \
                       << std::fixed << std::setprecision(1) << P.geo_x << ", GeoY = " \
                       << std::fixed << std::setprecision(1) << P.geo_y << ", Inline = " \

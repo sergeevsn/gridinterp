@@ -9,13 +9,25 @@ int read_params(std::string param_file, std::vector<point>& points, double& x1, 
     }
     std::istringstream iss;
     std::string line;
+
+    std::vector<std::string> param_lines;
+
     int line_num = 0;
     std::string value;
- 
-    
-    while (std::getline(file, line) && line_num < 4) {           
+
+    while (std::getline(file, line) && (line_num < 5)) {
+        
+        param_lines.push_back(line);
+       
+    }
+
+
+    file.close();
+      
+    for (int i = 0; i < 4; i++) {     
+      //  std::cout << param_lines[i] << std::endl;
         iss.clear();
-        iss.str(line);        
+        iss.str(param_lines[i]);        
         point P;
         if (std::getline(iss, value, ',')) P.lin_x = stod(value);
         else {
@@ -48,16 +60,11 @@ int read_params(std::string param_file, std::vector<point>& points, double& x1, 
             return -1; 
         }
         points.push_back(P);
-        line_num++;
-    }
-    if (points.size() < 4) {
-        std::cerr << "ERROR: Need 4 points for interpolation!" << std::endl;
-        return -1;
-    }
-
-    std::getline(file, line);
+      
+    }   
+   
     iss.clear();
-    iss.str(line);
+    iss.str(param_lines[4]);
    
     if (std::getline(iss, value, ',')) x1 = stod(value);
     else {
